@@ -10,7 +10,7 @@ function App() {
     <div>
       <Switch>
         {' '}
-        <Route path="/">
+        <Route path="/" exact>
           <AllMemos />
         </Route>
         <Route path="/memo">
