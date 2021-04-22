@@ -13,7 +13,7 @@ function App() {
         <Route path="/" exact>
           <AllMemos />
         </Route>
-        <Route path="/memo">
+        <Route path="/memo/:id">
           <Memo />
         </Route>
         <Route path="/new-memo">

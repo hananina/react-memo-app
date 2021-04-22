@@ -1,7 +1,11 @@
 import React from 'react';
 
-function Memo() {
-  return <div>memo</div>;
+import { RouteComponentProps } from 'react-router-dom';
+
+function Memo(props) {
+  const { id } = props.match.params;
+  console.log(id);
+  return <div>{id}</div>;
 }
 
 export default Memo;
