@@ -1,12 +1,5 @@
-function AllMemosPage() {
-  return (
-    <section>
-      <h1>All memos</h1>
-      <ul>
-        <li></li>
-      </ul>
-    </section>
-  );
+function AllMemos() {
+  return <div>all</div>;
 }
 
-export default AllMemosPage;
+export default AllMemos;
