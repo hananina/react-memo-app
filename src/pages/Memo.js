@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { RouteComponentProps } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-function Memo(props) {
-  const { id } = props.match.params;
-  console.log(id);
+function Memo() {
+  const { id } = useParams();
   return <div>{id}</div>;
 }
 
