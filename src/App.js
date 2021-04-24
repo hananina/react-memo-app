@@ -4,12 +4,12 @@ import Memo from './pages/Memo';
 import NewMemo from './pages/NewMemo';
 import EditMemo from './pages/EditMemo';
 import PinnedMemos from './pages/PinnedMemos';
-import MainNavigation from './components/layout/MainNavigation';
+import AppBar from './components/layout/AppBar';
 
 function App() {
   return (
     <div>
-      <MainNavigation />
+      <AppBar />
       <Switch>
         {' '}
         <Route path="/" exact>
