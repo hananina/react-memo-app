@@ -1,12 +1,11 @@
-import MemoItem from './MemoItem';
-import { makeStyles } from '@material-ui/core/styles';
+import MemoItem from "./MemoItem";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    listStyle: 'none',
+    listStyle: "none",
     margin: 0,
-    padding: '1rem',
-    backgroundColor: 'grey'
+    padding: "1rem",
   },
 });
 
