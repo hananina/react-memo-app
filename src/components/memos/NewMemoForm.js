@@ -5,7 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 
-function NewMemoForm() {
+function NewMemoForm(props) {
   const titleInputRef = useRef();
   const ContentInputRef = useRef();
 
@@ -19,7 +19,7 @@ function NewMemoForm() {
       title: enteredTitle,
       content: enteredContent,
     }
-    console.log(memoData)
+    props.onAddMemo(memoData);
   }
 
   return (
