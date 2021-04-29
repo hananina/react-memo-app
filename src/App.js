@@ -1,22 +1,17 @@
-import { Route, Switch } from 'react-router-dom';
-import AllMemos from './pages/AllMemos';
-import Memo from './pages/Memo';
-import NewMemo from './pages/NewMemo';
-import EditMemo from './pages/EditMemo';
-import PinnedMemos from './pages/PinnedMemos';
-import AppBar from './components/layout/AppBar';
+import { Route, Switch } from "react-router-dom";
+import AllMemos from "./pages/AllMemos";
+import Memo from "./pages/Memo";
+import NewMemo from "./pages/NewMemo";
+import EditMemo from "./pages/EditMemo";
+import PinnedMemos from "./pages/PinnedMemos";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
-    <div>
-      <AppBar />
+    <Layout>
       <Switch>
-        {' '}
         <Route path="/" exact>
           <AllMemos />
-        </Route>
-        <Route path="/memo/:id">
-          <Memo />
         </Route>
         <Route path="/new-memo">
           <NewMemo />
@@ -27,8 +22,11 @@ function App() {
         <Route path="/pinned-memos">
           <PinnedMemos />
         </Route>
+        <Route path="/memo/:id">
+          <Memo />
+        </Route>
       </Switch>
-    </div>
+    </Layout>
   );
 }
 

@@ -7,11 +7,10 @@ import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   appbBar: {
-    backgroundColor: '#ee7000',
+    flexDirection: 'row',
+    backgroundColor: 'transparent',
+    color: '#000',
     padding: theme.spacing(2),
   },
   menuButton: {
@@ -21,38 +20,54 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(2),
   },
+  nav: {
+    listStyle: 'none',
+    margin: 0,
+    padding: 0,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  navItem: {
+    marginLeft: '1rem',
+  },
+  navAnchor: {
+    textDecoration: 'none',
+    fontSize: '1rem',
+    color: '#fcb8d2',
+  },
 }));
 
 function MainNavigation() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.appbBar}>
-        <Typography variant="h6" className={classes.title}>
-          React Memo App
-        </Typography>
+    <AppBar position="static" className={classes.appbBar}>
+      <Typography variant="h6" className={classes.title}>
+        React Memo App
+      </Typography>
 
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">All Memos</Link>
-            </li>
-            <li>
-              <Link to="/">Pinned Memos</Link>
-            </li>
-            <li>
-              <Link to="/new-memo">
-                <IconButton edge="start" color="inherit" aria-label="menu">
-                  Add New Memo
-                  <NoteAddIcon />
-                </IconButton>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </AppBar>
-    </div>
+      <nav>
+        <ul className={classes.nav}>
+          <li className={classes.navItem}>
+            <Link className={classes.navAnchor} to="/">
+              All Memos
+            </Link>
+          </li>
+          <li className={classes.navItem}>
+            <Link className={classes.navAnchor} to="/pinned-memos">
+              Pinned Memos
+            </Link>
+          </li>
+          <li className={classes.navItem}>
+            <Link className={classes.navAnchor} to="/new-memo">
+              <IconButton edge="start" color="inherit" aria-label="menu">
+                <NoteAddIcon />
+              </IconButton>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </AppBar>
   );
 }
 
