@@ -1,10 +1,26 @@
 import AppBar from "./AppBar";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles({
+  main: {
+    padding: "1rem",
+    backgroundColor: 'grey'
+  },
+  container: {
+    
+  }
+});
 
 function Layout(props) {
+  const classes = useStyles();
+
   return (
     <div>
       <AppBar></AppBar>
-      <main>{props.children}</main>
+      <main className={classes.main}>
+        <div className={classes.container}>
+          {props.children}
+        </div>
+      </main>
     </div>
   );
 }
