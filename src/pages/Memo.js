@@ -2,9 +2,9 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-function Memo() {
+function MemoPage() {
   const { id } = useParams();
   return <div>{id}</div>;
 }
 
-export default Memo;
+export default MemoPage;

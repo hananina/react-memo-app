@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function PinnedMemos() {
+function PinnedMemosPage() {
   return <div>PinnedMemos</div>;
 }
 
-export default PinnedMemos;
+export default PinnedMemosPage;

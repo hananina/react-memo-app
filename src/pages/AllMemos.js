@@ -18,7 +18,7 @@ const DUMMY_DATA = [
   },
 ];
 
-function AllMemos() {
+function AllMemosPage() {
   return (
     <section>
       <h1>All Memos</h1>
@@ -27,4 +27,4 @@ function AllMemos() {
   );
 }
 
-export default AllMemos;
+export default AllMemosPage;

@@ -1,9 +1,9 @@
 import { Route, Switch } from "react-router-dom";
-import AllMemos from "./pages/AllMemos";
-import Memo from "./pages/Memo";
-import NewMemo from "./pages/NewMemo";
-import EditMemo from "./pages/EditMemo";
-import PinnedMemos from "./pages/PinnedMemos";
+import AllMemosPage from "./pages/AllMemos";
+import MemoPage from "./pages/Memo";
+import NewMemoPage from "./pages/NewMemo";
+import EditMemoPage from "./pages/EditMemo";
+import PinnedMemosPage from "./pages/PinnedMemos";
 import Layout from "./components/layout/Layout";
 
 function App() {
@@ -11,19 +11,19 @@ function App() {
     <Layout>
       <Switch>
         <Route path="/" exact>
-          <AllMemos />
+          <AllMemosPage />
         </Route>
         <Route path="/new-memo">
-          <NewMemo />
+          <NewMemoPage />
         </Route>
         <Route path="/edit-memo">
-          <EditMemo />
+          <EditMemoPage />
         </Route>
         <Route path="/pinned-memos">
-          <PinnedMemos />
+          <PinnedMemosPage />
         </Route>
         <Route path="/memo/:id">
-          <Memo />
+          <MemoPage />
         </Route>
       </Switch>
     </Layout>

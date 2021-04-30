@@ -1,5 +1,5 @@
-function EditMemo() {
+function EditMemoPage() {
   return <div>EditMemo</div>;
 }
 
-export default EditMemo;
+export default EditMemoPage;
