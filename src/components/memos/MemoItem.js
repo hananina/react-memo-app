@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,6 +13,8 @@ const useStyles = makeStyles({
 });
 
 function MemoItem(props) {
+  const userCreatedAt = moment(props.createdAt).format("YYYY/MM/DD hh:mm");
+
   const favoriteCtx = useContext(FavoriteContext);
   const itemIsFavorite = favoriteCtx.itemIsFavorite(props.id);
 
@@ -70,6 +73,7 @@ function MemoItem(props) {
         <CardContent>
           <h3>{props.title}</h3>
           <div>{props.content}</div>
+          <div>{userCreatedAt}</div>
           <div>
             <button type="button" onClick={toggleFavoriteHandler}>
               {itemIsFavorite ? "remove Pin" : "Pin this memo"}

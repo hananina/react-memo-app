@@ -12,6 +12,8 @@ function NewMemoPage() {
         {
           title: memoData.title,
           content: memoData.content,
+          createdAt: memoData.createdAt,
+          isFavorite: memoData.isFavorite,
         }
       )
       .then((res) => {
@@ -23,7 +25,7 @@ function NewMemoPage() {
 
   return (
     <section>
-      <h1>NewMemo</h1>
+      <h1>New Memo</h1>
       <NewMemoForm onAddMemo={addMemoHandlere} />
     </section>
   );
