@@ -4,8 +4,15 @@ import MemoList from "../components/memos/MemoList";
 
 function FavoritesPage() {
   const favoritesCtx = useContext(FavoritesContext);
-  console.log("favoritesCtx.favorites");
-  console.log(favoritesCtx.favorites);
+
+  if (favoritesCtx.totalFavorites === 0) {
+    return (
+      <section>
+        <h1>Pinned Memos</h1>
+        <p>You got no Pinned Memo yet.</p>
+      </section>
+    );
+  }
 
   return (
     <section>
