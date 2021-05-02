@@ -1,7 +1,10 @@
+import { useeContext } from "react";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
+import { useContext } from "react";
+import FavoriteContext from "../../store/favorites-context";
 
 const useStyles = makeStyles({
   card: {
@@ -10,6 +13,13 @@ const useStyles = makeStyles({
 });
 
 function MemoItem(props) {
+  const favoriteCtx = useContext(FavoriteContext);
+  const itemIsFavorite = favoriteCtx.itemIsFavorite(props.id);
+
+  console.log(itemIsFavorite);
+
+  function toggleFavoriteHandler() {}
+
   function deleteMemoHandler(id) {
     console.log(id);
 
