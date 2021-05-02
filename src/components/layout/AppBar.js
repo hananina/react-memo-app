@@ -1,16 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import NoteAddIcon from '@material-ui/icons/NoteAdd';
-import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Typography from "@material-ui/core/Typography";
+import NoteAddIcon from "@material-ui/icons/NoteAdd";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
   appbBar: {
-    flexDirection: 'row',
-    backgroundColor: 'transparent',
-    color: '#000',
+    flexDirection: "row",
+    backgroundColor: "transparent",
+    color: "#000",
     padding: theme.spacing(2),
   },
   menuButton: {
@@ -21,19 +21,19 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   nav: {
-    listStyle: 'none',
+    listStyle: "none",
     margin: 0,
     padding: 0,
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
   navItem: {
-    marginLeft: '1rem',
+    marginLeft: "1rem",
   },
   navAnchor: {
-    textDecoration: 'none',
-    fontSize: '1rem',
-    color: '#fcb8d2',
+    textDecoration: "none",
+    fontSize: "1rem",
+    color: "#fcb8d2",
   },
 }));
 
@@ -54,7 +54,7 @@ function MainNavigation() {
             </Link>
           </li>
           <li className={classes.navItem}>
-            <Link className={classes.navAnchor} to="/pinned-memos">
+            <Link className={classes.navAnchor} to="/favorites">
               Pinned Memos
             </Link>
           </li>

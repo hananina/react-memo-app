@@ -1,4 +1,3 @@
-import { useeContext } from "react";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -16,17 +15,23 @@ function MemoItem(props) {
   const favoriteCtx = useContext(FavoriteContext);
   const itemIsFavorite = favoriteCtx.itemIsFavorite(props.id);
 
-  console.log(itemIsFavorite);
+  function toggleFavoriteHandler() {
+    if (itemIsFavorite) {
+      favoriteCtx.removeFavorite(props.id);
+    } else {
+      favoriteCtx.addFavorite({
+        id: props.id,
+        title: props.title,
+        content: props.content,
+      });
+    }
+  }
 
-  function toggleFavoriteHandler() {}
-
-  function deleteMemoHandler(id) {
-    console.log(id);
-
+  function deleteMemoHandler() {
     axios
       .delete(
         "https://react-memo-app-64433-default-rtdb.firebaseio.com/memos/" +
-          id +
+          props.id +
           ".json"
       )
       .then((res) => {
@@ -66,8 +71,10 @@ function MemoItem(props) {
           <h3>{props.title}</h3>
           <div>{props.content}</div>
           <div>
-            <button type="button">Pin this memo</button>
-            <button type="button" onClick={() => deleteMemoHandler(props.id)}>
+            <button type="button" onClick={toggleFavoriteHandler}>
+              {itemIsFavorite ? "remove Pin" : "Pin this memo"}
+            </button>
+            <button type="button" onClick={deleteMemoHandler}>
               Delete this memo
             </button>
           </div>

@@ -3,7 +3,7 @@ import AllMemosPage from "./pages/AllMemos";
 import MemoPage from "./pages/Memo";
 import NewMemoPage from "./pages/NewMemo";
 import EditMemoPage from "./pages/EditMemo";
-import PinnedMemosPage from "./pages/PinnedMemos";
+import FavoritesPage from "./pages/Favorites";
 import Layout from "./components/layout/Layout";
 
 function App() {
@@ -19,8 +19,8 @@ function App() {
         <Route path="/edit-memo">
           <EditMemoPage />
         </Route>
-        <Route path="/pinned-memos">
-          <PinnedMemosPage />
+        <Route path="/favorites">
+          <FavoritesPage />
         </Route>
         <Route path="/memo/:id">
           <MemoPage />
