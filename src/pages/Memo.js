@@ -3,11 +3,29 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MemoItem from "../components/memos/MemoItem";
+import { useHistory } from "react-router";
 
 function MemoPage() {
   const { memoId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [loadedData, setLoadedData] = useState([]);
+  const history = useHistory();
+
+  function deleteMemoHandler() {
+    axios
+      .delete(
+        "https://react-memo-app-64433-default-rtdb.firebaseio.com/memos/" +
+          memoId +
+          ".json"
+      )
+      .then((res) => {
+        console.log(res);
+        history.replace("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,6 +58,9 @@ function MemoPage() {
   return (
     <section>
       <h1>Memo Detail</h1>
+      <button type="button" onClick={deleteMemoHandler}>
+        Delete this memo
+      </button>
       <MemoItem
         key={loadedData.id}
         id={loadedData.id}

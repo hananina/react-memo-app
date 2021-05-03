@@ -1,4 +1,3 @@
-import axios from "axios";
 import moment from "moment";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -31,21 +30,6 @@ function MemoItem(props) {
     }
   }
 
-  function deleteMemoHandler() {
-    axios
-      .delete(
-        "https://react-memo-app-64433-default-rtdb.firebaseio.com/memos/" +
-          props.id +
-          ".json"
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
   const classes = useStyles();
   return (
     <div key={props.id}>
@@ -58,9 +42,6 @@ function MemoItem(props) {
             <div>
               <button type="button" onClick={toggleFavoriteHandler}>
                 {itemIsFavorite ? "remove Pin" : "Pin this memo"}
-              </button>
-              <button type="button" onClick={deleteMemoHandler}>
-                Delete this memo
               </button>
             </div>
           </CardContent>
