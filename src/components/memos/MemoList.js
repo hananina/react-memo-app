@@ -13,15 +13,17 @@ function MemoList(props) {
   const classes = useStyles();
   return (
     <ul className={classes.root}>
-      {props.memos.map((memo) => (
-        <MemoItem
-          key={memo.id}
-          id={memo.id}
-          title={memo.title}
-          content={memo.content}
-          createdAt={memo.createdAt}
-          isFavorite={memo.isFavorite}
-        />
+      {props.memos.map((memo, index) => (
+        <li>
+          <MemoItem
+            key={memo.id}
+            id={memo.id}
+            title={memo.title}
+            content={memo.content}
+            createdAt={memo.createdAt}
+            isFavorite={memo.isFavorite}
+          />
+        </li>
       ))}
     </ul>
   );
