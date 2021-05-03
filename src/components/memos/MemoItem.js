@@ -33,20 +33,19 @@ function MemoItem(props) {
   const classes = useStyles();
   return (
     <div key={props.id}>
-      <Link to={`/memo/${props.id}`}>
-        <Card className={classes.card}>
-          <CardContent>
-            <h3>{props.title}</h3>
-            <div>{props.content}</div>
-            <div>{userCreatedAt}</div>
-            <div>
-              <button type="button" onClick={toggleFavoriteHandler}>
-                {itemIsFavorite ? "remove Pin" : "Pin this memo"}
-              </button>
-            </div>
-          </CardContent>
-        </Card>
-      </Link>
+      <Card className={classes.card}>
+        <CardContent>
+          <Link to={`/memo/${props.id}`}>See Detail</Link>
+          <h3>{props.title}</h3>
+          <div>{props.content}</div>
+          <div>{userCreatedAt}</div>
+          <div>
+            <button type="button" onClick={toggleFavoriteHandler}>
+              {itemIsFavorite ? "remove Pin" : "Pin this memo"}
+            </button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
