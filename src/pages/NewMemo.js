@@ -5,7 +5,7 @@ import NewMemoForm from "../components/memos/NewMemoForm";
 function NewMemoPage() {
   const history = useHistory();
 
-  function addMemoHandlere(memoData) {
+  function addMemoHandler(memoData) {
     axios
       .post(
         "https://react-memo-app-64433-default-rtdb.firebaseio.com/memos.json",
@@ -26,7 +26,7 @@ function NewMemoPage() {
   return (
     <section>
       <h1>New Memo</h1>
-      <NewMemoForm onAddMemo={addMemoHandlere} />
+      <NewMemoForm onAddMemo={addMemoHandler} />
     </section>
   );
 }
