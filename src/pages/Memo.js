@@ -28,10 +28,6 @@ function MemoPage() {
       });
   }
 
-  function editMemoHandler() {
-    console.log("edit");
-  }
-
   useEffect(() => {
     setIsLoading(true);
 
