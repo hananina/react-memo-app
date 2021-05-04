@@ -16,7 +16,7 @@ function App() {
         <Route path="/new-memo">
           <NewMemoPage />
         </Route>
-        <Route path="/edit-memo">
+        <Route path="/memo/:memoId/edit">
           <EditMemoPage />
         </Route>
         <Route path="/favorites">

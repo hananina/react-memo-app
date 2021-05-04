@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import MemoDetail from "../components/memos/MemoDetail";
 import { useHistory } from "react-router";
+import Button from "@material-ui/core/Button";
 
 function MemoPage() {
   const { memoId } = useParams();
@@ -25,6 +26,10 @@ function MemoPage() {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  function editMemoHandler() {
+    console.log("edit");
   }
 
   useEffect(() => {
@@ -58,9 +63,18 @@ function MemoPage() {
   return (
     <section>
       <h1>Memo Detail</h1>
-      <button type="button" onClick={deleteMemoHandler}>
-        Delete this memo
-      </button>
+
+      <Button variant="contained" onClick={deleteMemoHandler}>
+        Delete
+      </Button>
+      <Button
+        component={Link}
+        to={`/memo/${loadedData.id}/edit`}
+        variant="contained"
+        color="primary"
+      >
+        Edit
+      </Button>
       <MemoDetail
         key={loadedData.id}
         id={loadedData.id}
