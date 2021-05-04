@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import MemoItem from "../components/memos/MemoItem";
+import MemoDetail from "../components/memos/MemoDetail";
 import { useHistory } from "react-router";
 
 function MemoPage() {
@@ -61,7 +61,7 @@ function MemoPage() {
       <button type="button" onClick={deleteMemoHandler}>
         Delete this memo
       </button>
-      <MemoItem
+      <MemoDetail
         key={loadedData.id}
         id={loadedData.id}
         title={loadedData.title}

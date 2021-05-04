@@ -14,16 +14,14 @@ function MemoList(props) {
   return (
     <ul className={classes.root}>
       {props.memos.map((memo, index) => (
-        <li>
-          <MemoItem
-            key={memo.id}
-            id={memo.id}
-            title={memo.title}
-            content={memo.content}
-            createdAt={memo.createdAt}
-            isFavorite={memo.isFavorite}
-          />
-        </li>
+        <MemoItem
+          key={memo.id}
+          id={memo.id}
+          title={memo.title}
+          content={memo.content}
+          createdAt={memo.createdAt}
+          isFavorite={memo.isFavorite}
+        />
       ))}
     </ul>
   );
