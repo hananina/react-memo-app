@@ -32,9 +32,8 @@ function EditMemoPage() {
 
   function editTitleHandler(event) {
     console.log("handleTitleChange");
-    console.log(event);
-    console.log(loadedData);
     setLoadedData({ title: event.target.value });
+    console.log(loadedData);
   }
 
   function editContentHandler(event) {

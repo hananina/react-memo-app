@@ -31,7 +31,7 @@ function EditMemoForm(props) {
               label="Content"
               placeholder="Hello World"
               inputRef={ContentInputRef}
-              value={props.memo.content || ""}
+              value={props.memo.content}
               onChange={props.onEditContent}
               multiline
               rows={2}
