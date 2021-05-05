@@ -1,4 +1,4 @@
-// import { useHistory } from "react-router";
+import { useHistory } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import EditMemoForm from "../components/memos/EditMemoForm";
@@ -8,7 +8,7 @@ function EditMemoPage() {
   const { memoId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [loadedData, setLoadedData] = useState([]);
-  // const history = useHistory();
+  const history = useHistory();
 
   useEffect(() => {
     setIsLoading(true);
@@ -31,13 +31,41 @@ function EditMemoPage() {
   }, [memoId]);
 
   function editTitleHandler(event) {
-    console.log("handleTitleChange");
-    setLoadedData({ title: event.target.value });
-    console.log(loadedData);
+    setLoadedData({
+      title: event.target.value,
+      content: loadedData.content,
+      createdAt: new Date(),
+      isFavorite: loadedData.isFavorite,
+    });
   }
 
   function editContentHandler(event) {
-    setLoadedData({ content: event.target.value });
+    setLoadedData({
+      title: loadedData.title,
+      content: event.target.value,
+      createdAt: new Date(),
+      isFavorite: loadedData.isFavorite,
+    });
+  }
+
+  function editMemoHandler(EditedData) {
+    axios
+      .put(
+        "https://react-memo-app-64433-default-rtdb.firebaseio.com/memos/" +
+          memoId +
+          ".json",
+        {
+          title: loadedData.title,
+          content: loadedData.content,
+          createdAt: EditedData.createdAt,
+          isFavorite: EditedData.isFavorite,
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+        history.replace("/");
+      });
   }
 
   if (isLoading) {
@@ -55,6 +83,7 @@ function EditMemoPage() {
         memo={loadedData}
         onEditTitle={editTitleHandler}
         onEditContent={editContentHandler}
+        onEditMemo={editMemoHandler}
       />
     </section>
   );
