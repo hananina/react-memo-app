@@ -57,8 +57,8 @@ function EditMemoPage() {
         {
           title: loadedData.title,
           content: loadedData.content,
-          createdAt: EditedData.createdAt,
-          isFavorite: EditedData.isFavorite,
+          createdAt: loadedData.createdAt,
+          isFavorite: loadedData.isFavorite,
         }
       )
       .then((res) => {

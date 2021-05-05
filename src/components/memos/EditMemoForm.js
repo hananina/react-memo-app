@@ -6,15 +6,7 @@ import TextField from "@material-ui/core/TextField";
 function EditMemoForm(props) {
   function submitHandler(event) {
     event.preventDefault();
-
-    const EditedData = {
-      title: "",
-      content: "",
-      createdAt: new Date(),
-      isFavorite: props.memo.isFavorite,
-    };
-
-    props.onEditMemo(EditedData);
+    props.onEditMemo();
   }
 
   return (
