@@ -5,7 +5,6 @@ import MemoList from "../components/memos/MemoList";
 
 const sortMemos = (memos) => {
   return memos.sort((memoA, memoB ) =>  {
-    console.log(memoA);
     return memoA.createdAt < memoB.createdAt ? 1 : -1
   })
 }
