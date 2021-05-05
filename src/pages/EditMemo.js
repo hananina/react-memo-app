@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 function EditMemoPage() {
   const { memoId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [loadedData, setLoadedData] = useState([]);
+  const [memoData, setmemoData] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -26,25 +26,25 @@ function EditMemoPage() {
         };
 
         setIsLoading(false);
-        setLoadedData(memo);
+        setmemoData(memo);
       });
   }, [memoId]);
 
   function editTitleHandler(event) {
-    setLoadedData({
+    setmemoData({
       title: event.target.value,
-      content: loadedData.content,
+      content: memoData.content,
       createdAt: new Date(),
-      isFavorite: loadedData.isFavorite,
+      isFavorite: memoData.isFavorite,
     });
   }
 
   function editContentHandler(event) {
-    setLoadedData({
-      title: loadedData.title,
+    setmemoData({
+      title: memoData.title,
       content: event.target.value,
       createdAt: new Date(),
-      isFavorite: loadedData.isFavorite,
+      isFavorite: memoData.isFavorite,
     });
   }
 
@@ -55,15 +55,13 @@ function EditMemoPage() {
           memoId +
           ".json",
         {
-          title: loadedData.title,
-          content: loadedData.content,
-          createdAt: loadedData.createdAt,
-          isFavorite: loadedData.isFavorite,
+          title: memoData.title,
+          content: memoData.content,
+          createdAt: memoData.createdAt,
+          isFavorite: memoData.isFavorite,
         }
       )
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
+      .then(() => {
         history.replace("/");
       });
   }
@@ -80,7 +78,7 @@ function EditMemoPage() {
     <section>
       <h1>Edit Memo</h1>
       <EditMemoForm
-        memo={loadedData}
+        memo={memoData}
         onEditTitle={editTitleHandler}
         onEditContent={editContentHandler}
         onEditMemo={editMemoHandler}

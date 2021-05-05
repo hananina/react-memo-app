@@ -16,9 +16,7 @@ function NewMemoPage() {
           isFavorite: memoData.isFavorite,
         }
       )
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
+      .then(() => {
         history.replace("/");
       });
   }

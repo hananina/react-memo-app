@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 function MemoPage() {
   const { memoId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [loadedData, setLoadedData] = useState([]);
+  const [memoData, setmemoData] = useState([]);
   const history = useHistory();
 
   function deleteMemoHandler() {
@@ -20,7 +20,6 @@ function MemoPage() {
           ".json"
       )
       .then((res) => {
-        console.log(res);
         history.replace("/");
       })
       .catch((err) => {
@@ -44,7 +43,7 @@ function MemoPage() {
         };
 
         setIsLoading(false);
-        setLoadedData(memo);
+        setmemoData(memo);
       });
   }, [memoId]);
 
@@ -65,19 +64,19 @@ function MemoPage() {
       </Button>
       <Button
         component={Link}
-        to={`/memo/${loadedData.id}/edit`}
+        to={`/memo/${memoData.id}/edit`}
         variant="contained"
         color="primary"
       >
         Edit
       </Button>
       <MemoDetail
-        key={loadedData.id}
-        id={loadedData.id}
-        title={loadedData.title}
-        content={loadedData.content}
-        createdAt={loadedData.createdAt}
-        isFavorite={loadedData.isFavorite}
+        key={memoData.id}
+        id={memoData.id}
+        title={memoData.title}
+        content={memoData.content}
+        createdAt={memoData.createdAt}
+        isFavorite={memoData.isFavorite}
       />
     </section>
   );

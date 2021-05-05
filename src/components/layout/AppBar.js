@@ -43,7 +43,7 @@ function MainNavigation() {
   return (
     <AppBar position="static" className={classes.appbBar}>
       <Typography variant="h6" className={classes.title}>
-        React Memo App
+        📝 React Memo App
       </Typography>
 
       <nav>
