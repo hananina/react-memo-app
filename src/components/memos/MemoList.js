@@ -11,6 +11,7 @@ const useStyles = makeStyles({
 
 function MemoList(props) {
   const classes = useStyles();
+
   return (
     <ul className={classes.root}>
       {props.memos.map((memo, index) => (

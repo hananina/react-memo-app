@@ -2,6 +2,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import MemoList from "../components/memos/MemoList";
 
+
+const sortMemos = (memos) => {
+  return memos.sort((memoA, memoB ) =>  {
+    console.log(memoA);
+    return memoA.createdAt < memoB.createdAt ? 1 : -1
+  })
+}
+
 function AllMemosPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedData, setLoadedData] = useState([]);
@@ -23,9 +31,9 @@ function AllMemosPage() {
           };
           memos.push(memo);
         }
-
+        const sortedMemos = sortMemos(memos)
+        setLoadedData(sortedMemos);
         setIsLoading(false);
-        setLoadedData(memos);
       });
   }, []);
 
