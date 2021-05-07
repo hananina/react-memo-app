@@ -32,7 +32,6 @@ const useStyles = makeStyles({
   body: {
     marginBottom: "1rem",
   },
-  footer: {},
 });
 
 function MemoItem(props) {

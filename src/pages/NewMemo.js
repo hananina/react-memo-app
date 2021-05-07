@@ -13,7 +13,6 @@ function NewMemoPage() {
           title: memoData.title,
           content: memoData.content,
           createdAt: memoData.createdAt,
-          isFavorite: memoData.isFavorite,
         }
       )
       .then(() => {

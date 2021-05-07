@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import MemoDetail from "../components/memos/MemoDetail";
 import { useHistory } from "react-router";
-import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
@@ -83,7 +82,6 @@ function MemoPage() {
         title={memoData.title}
         content={memoData.content}
         createdAt={memoData.createdAt}
-        isFavorite={memoData.isFavorite}
       />
     </section>
   );

@@ -35,7 +35,6 @@ function EditMemoPage() {
       title: event.target.value,
       content: memoData.content,
       createdAt: new Date(),
-      isFavorite: memoData.isFavorite,
     });
   }
 
@@ -44,7 +43,6 @@ function EditMemoPage() {
       title: memoData.title,
       content: event.target.value,
       createdAt: new Date(),
-      isFavorite: memoData.isFavorite,
     });
   }
 
@@ -58,7 +56,6 @@ function EditMemoPage() {
           title: memoData.title,
           content: memoData.content,
           createdAt: memoData.createdAt,
-          isFavorite: memoData.isFavorite,
         }
       )
       .then(() => {

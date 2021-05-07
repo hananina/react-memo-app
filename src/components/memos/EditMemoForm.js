@@ -2,8 +2,18 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles((theme) => ({
+  action: {
+    marginTop: "1rem",
+    textAlign: "right",
+  },
+}));
 
 function EditMemoForm(props) {
+  const classes = useStyles();
+
   function submitHandler(event) {
     event.preventDefault();
     props.onEditMemo();
@@ -33,8 +43,8 @@ function EditMemoForm(props) {
               rowsMax={4}
             />
           </FormControl>
-          <div>
-            <button>Save</button>
+          <div className={classes.action}>
+            <Button variant="contained">Save</Button>
           </div>
         </form>
       </CardContent>

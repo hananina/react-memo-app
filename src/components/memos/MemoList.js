@@ -21,7 +21,6 @@ function MemoList(props) {
           title={memo.title}
           content={memo.content}
           createdAt={memo.createdAt}
-          isFavorite={memo.isFavorite}
         />
       ))}
     </ul>

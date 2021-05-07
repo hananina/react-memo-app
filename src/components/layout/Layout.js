@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   main: {
     padding: "1rem",
+    maxWidth: "798px",
+    margin: "0 auto",
   },
   container: {},
 });
