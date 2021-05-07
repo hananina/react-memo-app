@@ -54,7 +54,8 @@ function AllMemosPage() {
 
     setLoadedData(copiedSortedMemos);
     setIsLoading(false);
-    
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [favoriteCtx.totalFavorites]);
 
 
