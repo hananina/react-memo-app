@@ -44,7 +44,9 @@ function EditMemoForm(props) {
             />
           </FormControl>
           <div className={classes.action}>
-            <Button variant="contained">Save</Button>
+            <Button type="submit" variant="contained">
+              Save
+            </Button>
           </div>
         </form>
       </CardContent>

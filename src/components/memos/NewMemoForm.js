@@ -50,7 +50,9 @@ function NewMemoForm(props) {
             />
           </FormControl>
           <div className={classes.action}>
-            <Button variant="contained">Add</Button>
+            <Button type="submit" variant="contained">
+              Add
+            </Button>
           </div>
         </form>
       </CardContent>
