@@ -5,6 +5,9 @@ import { useParams, Link } from "react-router-dom";
 import MemoDetail from "../components/memos/MemoDetail";
 import { useHistory } from "react-router";
 import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
+import IconButton from "@material-ui/core/IconButton";
 
 function MemoPage() {
   const { memoId } = useParams();
@@ -59,17 +62,21 @@ function MemoPage() {
     <section>
       <h1>Memo Detail</h1>
 
-      <Button variant="contained" onClick={deleteMemoHandler}>
-        Delete
-      </Button>
-      <Button
+      <IconButton
+        onClick={deleteMemoHandler}
+        aria-label="delete item"
+        component="span"
+      >
+        <DeleteIcon />
+      </IconButton>
+      <IconButton
         component={Link}
         to={`/memo/${memoData.id}/edit`}
-        variant="contained"
-        color="primary"
+        aria-label="delete item"
       >
-        Edit
-      </Button>
+        <EditIcon />
+      </IconButton>
+
       <MemoDetail
         key={memoData.id}
         id={memoData.id}

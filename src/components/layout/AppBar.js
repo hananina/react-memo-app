@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import NoteAddIcon from "@material-ui/icons/NoteAdd";
-import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   appbBar: {
@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#000",
     backgroundColor: "#fff",
     padding: theme.spacing(2),
+    alignItems: "center",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -56,14 +57,18 @@ function MainNavigation() {
           </li>
           <li className={classes.navItem}>
             <Link className={classes.navAnchor} to="/favorites">
-              Saved Memos
+              Pinned Memos
             </Link>
           </li>
           <li className={classes.navItem}>
             <Link className={classes.navAnchor} to="/new-memo">
-              <IconButton edge="start" color="inherit" aria-label="menu">
-                <NoteAddIcon />
-              </IconButton>
+              <Button
+                variant="contained"
+                className={classes.button}
+                endIcon={<NoteAddIcon />}
+              >
+                Add Memo
+              </Button>
             </Link>
           </li>
         </ul>

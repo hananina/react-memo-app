@@ -13,6 +13,9 @@ const useStyles = makeStyles({
   root: {
     position: "relative",
   },
+  anchor: {
+    textDecoration: "none",
+  },
   card: {
     marginBottom: "1rem",
   },
@@ -21,6 +24,15 @@ const useStyles = makeStyles({
     top: ".5rem",
     right: ".5rem",
   },
+  heading: {
+    marginBottom: "1rem",
+    fontWeight: "600",
+    fontSize: "1.2rem",
+  },
+  body: {
+    marginBottom: "1rem",
+  },
+  footer: {},
 });
 
 function MemoItem(props) {
@@ -53,11 +65,11 @@ function MemoItem(props) {
         {itemIsFavorite ? <TurnedInIcon /> : <TurnedInNotIcon />}
       </IconButton>
 
-      <Link to={`/memo/${props.id}`}>
+      <Link to={`/memo/${props.id}`} className={classes.anchor}>
         <Card className={classes.card}>
           <CardContent>
-            <h3>{props.title}</h3>
-            <div>{props.content}</div>
+            <div className={classes.heading}>{props.title}</div>
+            <div className={classes.body}>{props.content}</div>
             <div>{userCreatedAt}</div>
           </CardContent>
         </Card>
