@@ -9,8 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 const useStyles = makeStyles((theme) => ({
   appbBar: {
     flexDirection: "row",
-    backgroundColor: "transparent",
     color: "#000",
+    backgroundColor: "#fff",
     padding: theme.spacing(2),
   },
   menuButton: {
@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     padding: theme.spacing(2),
+    fontWeight: "bold",
   },
   nav: {
     listStyle: "none",
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   navAnchor: {
     textDecoration: "none",
     fontSize: "1rem",
-    color: "#fcb8d2",
+    color: "#000",
   },
 }));
 

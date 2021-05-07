@@ -3,11 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   main: {
     padding: "1rem",
-    backgroundColor: 'grey'
   },
-  container: {
-    
-  }
+  container: {},
 });
 
 function Layout(props) {
@@ -17,9 +14,7 @@ function Layout(props) {
     <div>
       <AppBar></AppBar>
       <main className={classes.main}>
-        <div className={classes.container}>
-          {props.children}
-        </div>
+        <div className={classes.container}>{props.children}</div>
       </main>
     </div>
   );

@@ -5,10 +5,21 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import IconButton from "@material-ui/core/IconButton";
+import TurnedInIcon from "@material-ui/icons/TurnedIn";
+import TurnedInNotIcon from "@material-ui/icons/TurnedInNot";
 
 const useStyles = makeStyles({
+  root: {
+    position: "relative",
+  },
   card: {
     marginBottom: "1rem",
+  },
+  favButton: {
+    position: "absolute",
+    top: ".5rem",
+    right: ".5rem",
   },
 });
 
@@ -32,20 +43,25 @@ function MemoItem(props) {
 
   const classes = useStyles();
   return (
-    <li key={props.id}>
-      <Card className={classes.card}>
-        <CardContent>
-          <Link to={`/memo/${props.id}`}>See Detail</Link>
-          <h3>{props.title}</h3>
-          <div>{props.content}</div>
-          <div>{userCreatedAt}</div>
-          <div>
-            <button type="button" onClick={toggleFavoriteHandler}>
-              {itemIsFavorite ? "remove Pin" : "Pin this memo"}
-            </button>
-          </div>
-        </CardContent>
-      </Card>
+    <li key={props.id} className={classes.root}>
+      <IconButton
+        className={classes.favButton}
+        onClick={toggleFavoriteHandler}
+        aria-label="save item"
+        component="span"
+      >
+        {itemIsFavorite ? <TurnedInIcon /> : <TurnedInNotIcon />}
+      </IconButton>
+
+      <Link to={`/memo/${props.id}`}>
+        <Card className={classes.card}>
+          <CardContent>
+            <h3>{props.title}</h3>
+            <div>{props.content}</div>
+            <div>{userCreatedAt}</div>
+          </CardContent>
+        </Card>
+      </Link>
     </li>
   );
 }
