@@ -56,7 +56,7 @@ function MainNavigation() {
           </li>
           <li className={classes.navItem}>
             <Link className={classes.navAnchor} to="/favorites">
-              Pinned Memos
+              Saved Memos
             </Link>
           </li>
           <li className={classes.navItem}>

@@ -8,7 +8,7 @@ function FavoritesPage() {
   if (favoritesCtx.totalFavorites === 0) {
     return (
       <section>
-        <h1>Pinned Memos</h1>
+        <h1>Saved Memos</h1>
         <p>You got no Pinned Memo yet.</p>
       </section>
     );
@@ -16,7 +16,7 @@ function FavoritesPage() {
 
   return (
     <section>
-      <h1>Pinned Memos</h1>
+      <h1>Saved Memos</h1>
       <MemoList memos={favoritesCtx.favorites}></MemoList>
     </section>
   );
