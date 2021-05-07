@@ -26,7 +26,8 @@ function AllMemosPage() {
           };
           memos.push(memo);
         }
-    
+        
+        // sort items on initial load
         const sortedMemos = memos.sort((memoA, memoB ) =>  {
           return   memoA.createdAt < memoB.createdAt ? 1: -1
         })
@@ -36,10 +37,13 @@ function AllMemosPage() {
       });
   }, []);
 
+  // sort items when the length of fav context changed
   useEffect(() => {
     setIsLoading(true);
 
     const sortedMemos = loadedData.sort((memoA, memoB ) =>  {
+      return   memoA.createdAt < memoB.createdAt ? 1: -1
+    }).sort((memoA, memoB ) =>  {
       const memoAIsFavorite = favoriteCtx.itemIsFavorite(memoA.id);
       const memoBIsFavorite = favoriteCtx.itemIsFavorite(memoB.id);
 
@@ -51,7 +55,7 @@ function AllMemosPage() {
     setLoadedData(copiedSortedMemos);
     setIsLoading(false);
     
-  }, [favoriteCtx]);
+  }, [favoriteCtx.totalFavorites]);
 
 
   if (isLoading) {
