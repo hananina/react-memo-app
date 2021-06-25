@@ -14,39 +14,39 @@ function MemoPage() {
   const [memoData, setmemoData] = useState([]);
   const history = useHistory();
 
-  function deleteMemoHandler() {
-    axios
-      .delete(
-        "https://react-memo-app-64433-default-rtdb.firebaseio.com/memos/" +
-          memoId +
-          ".json"
-      )
-      .then((res) => {
-        history.replace("/");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  async function deleteMemoHandler() {
+    try {
+      const response = await axios.delete("https://react-memo-app-64433-default-rtdb.firebaseio.com/memos/" + memoId + ".json")
+
+      history.replace("/");
+
+    } catch (error) {
+      console.log(error);
+    }
   }
+ 
 
   useEffect(() => {
     setIsLoading(true);
 
-    axios
-      .get(
-        "https://react-memo-app-64433-default-rtdb.firebaseio.com/memos/" +
-          memoId +
-          ".json"
-      )
-      .then((res) => {
+    async function getMemo() {
+      try {
+        const response = await axios.get("https://react-memo-app-64433-default-rtdb.firebaseio.com/memos/" + memoId + ".json")
+    
         const memo = {
           id: memoId,
-          ...res.data,
+          ...response.data,
         };
-
+  
         setIsLoading(false);
         setmemoData(memo);
-      });
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }    
+
+    getMemo();
   }, [memoId]);
 
   if (isLoading) {

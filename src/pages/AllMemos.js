@@ -11,7 +11,7 @@ function AllMemosPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    async function fetchAllMemoAPI() {
+    async function getAllMemo() {
       const response =  await axios.get("https://react-memo-app-64433-default-rtdb.firebaseio.com/memos.json")
     
       const memos = [];
@@ -33,7 +33,7 @@ function AllMemosPage() {
       setIsLoading(false);
     }
 
-    fetchAllMemoAPI();
+    getAllMemo();
   }, []);
 
   // sort items when the length of fav context changed
