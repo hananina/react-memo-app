@@ -11,30 +11,29 @@ function AllMemosPage() {
 
   useEffect(() => {
     setIsLoading(true);
+    async function fetchAllMemoAPI() {
+      const response =  await axios.get("https://react-memo-app-64433-default-rtdb.firebaseio.com/memos.json")
+    
+      const memos = [];
 
-    axios
-      .get(
-        "https://react-memo-app-64433-default-rtdb.firebaseio.com/memos.json"
-      )
-      .then((res) => {
-        const memos = [];
+      for (const key in response.data) {
+        const memo = {
+          id: key,
+          ...response.data[key],
+        };
+        memos.push(memo);
+      }
+      
+      // sort items on initial load
+      const sortedMemos = memos.sort((memoA, memoB ) =>  {
+        return   memoA.createdAt < memoB.createdAt ? 1: -1
+      })
 
-        for (const key in res.data) {
-          const memo = {
-            id: key,
-            ...res.data[key],
-          };
-          memos.push(memo);
-        }
-        
-        // sort items on initial load
-        const sortedMemos = memos.sort((memoA, memoB ) =>  {
-          return   memoA.createdAt < memoB.createdAt ? 1: -1
-        })
+      setLoadedData(sortedMemos);
+      setIsLoading(false);
+    }
 
-        setLoadedData(sortedMemos);
-        setIsLoading(false);
-      });
+    fetchAllMemoAPI();
   }, []);
 
   // sort items when the length of fav context changed
